@@ -56,7 +56,8 @@ class GOODMotif(InMemoryDataset):
         mode = {'train': 0, 'val': 1, 'test': 2, 'id_val': 3, 'id_test': 4}
         subset_pt = shift_mode[shift] + mode[subset]
 
-        self.data, self.slices = torch.load(self.processed_paths[subset_pt])
+        # self.data, self.slices = torch.load(self.processed_paths[subset_pt])
+        self.data, self.slices = torch.load(self.processed_paths[subset_pt], weights_only=False)
 
     @property
     def raw_dir(self):
